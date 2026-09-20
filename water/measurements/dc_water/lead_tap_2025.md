@@ -3,10 +3,13 @@ record_type: measurement
 instrument_type: Drinking Water Quality
 title: Lead Tap Water Compliance (DC Water)
 short_title: Lead at Customer Tap
-system_id: DC0000002
+system: DC Water Distribution System
 source_agency: District of Columbia Water and Sewer Authority (DC Water)
 jurisdiction: dc/dc_water
 jurisdiction_name: District of Columbia
+topic: water
+topics:
+  - water
 parameter: Lead
 value: 2
 unit: ppb
@@ -17,6 +20,7 @@ governing_limit:
   unit: ppb
   citation: 40 CFR § 141.80(c)
   compliance_date: '2025-12-31'
+  basis: 90th percentile of customer tap samples
 limit_status: below_limit
 primary_source_url: https://www.dcwater.com/sites/default/files/document/2026-06/documents/2026_CCR_6.11.26_FINAL.pdf
 source_pdf: https://www.dcwater.com/sites/default/files/document/2026-06/documents/2026_CCR_6.11.26_FINAL.pdf

@@ -5,7 +5,8 @@ title: Lead Tap Water Compliance (DC Water)
 short_title: Lead at Customer Tap
 system: DC Water Distribution System
 source_agency: District of Columbia Water and Sewer Authority (DC Water)
-jurisdiction: dc/dc_water
+jurisdiction_key: district_of_columbia
+jurisdiction: dc/district_of_columbia
 jurisdiction_name: District of Columbia
 topic: water
 topics:

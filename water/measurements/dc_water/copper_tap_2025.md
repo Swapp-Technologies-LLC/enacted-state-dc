@@ -5,7 +5,6 @@ title: Copper Tap Water Compliance (DC Water)
 short_title: Copper at Customer Tap
 system: DC Water Distribution System
 source_agency: District of Columbia Water and Sewer Authority (DC Water)
-jurisdiction_key: district_of_columbia
 jurisdiction: dc/district_of_columbia
 jurisdiction_name: District of Columbia
 topic: water

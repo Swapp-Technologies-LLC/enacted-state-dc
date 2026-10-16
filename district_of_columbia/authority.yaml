@@ -1,0 +1,8 @@
+zoning_office:
+  office: "Office of the Zoning Administrator"
+  phone: "(202) 671-3500"
+  web: "https://dcoz.dc.gov/page/determine-which-zoning-department-contact-your-zoning-matters"
+  source_url: "https://dcoz.dc.gov/page/determine-which-zoning-department-contact-your-zoning-matters"
+  source_sha256: "6e350188a61200e8a0b6766216973f7ad509866cbaf4f41d358cd6fe3ae71f8a"
+  source_fetched_at: "2026-10-16T06:57:03.024019+00:00"
+  quoted_sentence: "Office of the Zoning Administrator Department of Buildings 1100 4th Street, SW, Washington, DC 20024 (202) 671-3500"

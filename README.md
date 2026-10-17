@@ -22,6 +22,19 @@ Nothing here is legal advice, and using it does not create an attorney-client re
 
 Browse these records on **[enacted.app](https://enacted.app/coverage/?jur=dc/district_of_columbia)**, or follow the District by feed at **[enacted.app/feeds](https://enacted.app/feeds/)**. Both are free.
 
+## Contents
+
+- [What's in it](#whats-in-it)
+- [Coverage](#coverage)
+  - [Water](#water)
+  - [Zoning and land use](#zoning-and-land-use)
+- [How a record is made](#how-a-record-is-made)
+- [Checking the records yourself](#checking-the-records-yourself)
+- [Reuse and licences](#reuse-and-licences)
+- [Corrections](#corrections)
+- [About](#about)
+
+
 ## What's in it
 
 | Path | What it holds |
@@ -35,9 +48,35 @@ Browse these records on **[enacted.app](https://enacted.app/coverage/?jur=dc/dis
 
 ## Coverage
 
+Each topic below has a short summary and the full list in a dropdown. The [coverage page](https://enacted.app/coverage/?jur=dc/district_of_columbia) shows the same thing on a map.
+
+### Water
+
+DC Water's published lead and copper results at customer taps.
+
+<details>
+<summary>All 2 water records</summary>
+
+| Water system | Utility | Serves | Parameter | Period | Record |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| DC Water Distribution System | DC Water | District of Columbia | Copper | January–June 2025 | [record](water/measurements/dc_water/copper_tap_2025.md) |
+| DC Water Distribution System | DC Water | District of Columbia | Lead | July–December 2025 | [record](water/measurements/dc_water/lead_tap_2025.md) |
+
+</details>
+
+### Zoning and land use
+
+Zoning and land-use legislation from the Council of the District of Columbia.
+
+<details>
+<summary>The District's records</summary>
+
 | Jurisdiction | Folder | Status |
 | :-- | :-- | :-- |
 | District of Columbia | [`district_of_columbia/`](district_of_columbia/) | Records |
+
+</details>
+
 
 Records are added and refreshed by deterministic fetch scripts run by hand. Scheduled fetch-and-check workflows are staged in `.github/workflows-pending/` and are not switched on yet, so a change at the source appears here only after the next run.
 

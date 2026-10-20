@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "last_run": "2026-10-20T16:00:00Z",
+  "sources": {
+    "dc_water_ccr": {
+      "consecutive_failures": 0,
+      "last_changed": "2026-09-20T17:38:15Z",
+      "last_reached": "2026-10-20T16:00:00Z",
+      "source_id": "dc_water_ccr",
+      "status": "ok",
+      "url": "https://www.dcwater.com/sites/default/files/document/2026-06/documents/2026_CCR_6.11.26_FINAL.pdf"
+    }
+  }
+}

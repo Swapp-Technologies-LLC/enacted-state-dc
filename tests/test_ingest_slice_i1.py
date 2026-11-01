@@ -638,6 +638,50 @@ class TestIngestSliceI1(unittest.TestCase):
         self.assertFalse(crawler.can_fetch("https://lims.dccouncil.gov/Legislation/B26-0610"))
         self.assertTrue(crawler.can_fetch("https://allowed.gov/doc.pdf"))
 
+    # 15. No File in Repo Fetches from LIMS Test
+    def test_no_file_fetches_from_lims(self):
+        # 1. Verify crawler disallows LIMS URL
+        crawler = EnactedCrawler(min_interval=0.0, obey_robots=True)
+        crawler.register_robots_txt("lims.dccouncil.gov", "User-agent: *\nDisallow: /\n")
+        lims_url = "https://lims.dccouncil.gov/Legislation/B26-0610"
+        self.assertFalse(crawler.can_fetch(lims_url), "LIMS URL must be disallowed by robots.txt")
+
+        # 2. Verify no python script or workflow performs active HTTP requests to LIMS
+        for root, dirs, files in os.walk(REPO_DIR):
+            if any(p in (".git", ".cache", "node_modules", "dist") for p in root.split(os.sep)):
+                continue
+            for f in files:
+                if f.endswith((".py", ".yml", ".yaml")) and f != "test_ingest_slice_i1.py":
+                    fpath = os.path.join(root, f)
+                    with open(fpath, "r", encoding="utf-8", errors="ignore") as fh:
+                        content = fh.read()
+                    # Ensure no fetch calls or requests are targeting lims
+                    self.assertNotIn("requests.get(\"https://lims.dccouncil.gov", content)
+                    self.assertNotIn("urlopen(\"https://lims.dccouncil.gov", content)
+                    self.assertNotIn("fetch(\"https://lims.dccouncil.gov", content)
+
+    # 16. Status Source SHA-256 Matches Cached File Test
+    def test_status_source_sha256_matches_cached_file(self):
+        rec_path = REPO_DIR / "district_of_columbia" / "council_bills" / "b26_0610.md"
+        self.assertTrue(rec_path.exists(), "b26_0610.md record must exist")
+        rec_text = rec_path.read_text(encoding="utf-8")
+        fm = yaml.safe_load(rec_text.split("---", 2)[1])
+
+        status_sha = fm.get("status_source_sha256")
+        self.assertIsNotNone(status_sha, "Record must carry status_source_sha256")
+        self.assertEqual(len(status_sha), 64, "status_source_sha256 must be 64-char hex string")
+
+        cache_dir = REPO_DIR / ".cache"
+        cache_file = cache_dir / f"{status_sha}.xml"
+        if not cache_file.exists():
+            cache_file = cache_dir / f"{status_sha}.bin"
+        if not cache_file.exists():
+            cache_file = cache_dir / "pdf_cache" / f"{status_sha}.bin"
+
+        self.assertTrue(cache_file.exists(), f"Cached file for {status_sha} must exist in .cache/")
+        actual_sha = hashlib.sha256(cache_file.read_bytes()).hexdigest()
+        self.assertEqual(actual_sha, status_sha, "Cached file SHA-256 must match status_source_sha256")
+
     # 12. Stub Issue Manager Lifecycle (Open -> Comment -> Close)
     def test_stub_issue_manager_lifecycle(self):
         client = StubIssueClient()

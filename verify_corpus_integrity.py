@@ -373,6 +373,43 @@ def main():
         else:
             print(f"  ✓ SHA-256 match ({expected_sha[:12]}...): {r['rel_path']}")
 
+        # Re-hash status_source_sha256 if present
+        status_sha = fm.get("status_source_sha256")
+        status_url = fm.get("status_source_url")
+        if status_sha and status_url:
+            status_cache_file = os.path.join(cache_dir, f"{status_sha}.bin")
+            if not os.path.exists(status_cache_file):
+                status_cache_file = os.path.join(REPO_ROOT, ".cache", f"{status_sha}.xml")
+            status_data = None
+            if os.path.exists(status_cache_file):
+                with open(status_cache_file, "rb") as scf:
+                    status_data = scf.read()
+            else:
+                try:
+                    allowed, status_code, body, err = crawler.fetch(status_url, timeout=30)
+                    if not allowed:
+                        host = urlparse(status_url).netloc.lower()
+                        robots_skipped_by_host[host] = robots_skipped_by_host.get(host, 0) + 1
+                        print(f"  not fetched: robots ({status_url})")
+                    elif status_code == 200:
+                        status_data = body
+                        with open(status_cache_file, "wb") as scf:
+                            scf.write(status_data)
+                    else:
+                        print(f"  FAIL: Could not download status source {status_url}: HTTP {status_code} ({err})")
+                        failed_checks += 1
+                except Exception as e:
+                    print(f"  FAIL: Could not download status source {status_url}: {e}")
+                    failed_checks += 1
+
+            if status_data:
+                actual_status_sha = hashlib.sha256(status_data).hexdigest()
+                if actual_status_sha != status_sha:
+                    print(f"  FAIL: {r['rel_path']} status_source hash mismatch! Expected {status_sha}, got {actual_status_sha}")
+                    failed_checks += 1
+                else:
+                    print(f"  ✓ SHA-256 match ({status_sha[:12]}...): {r['rel_path']} (status_source)")
+
         if r["fm"].get("record_type") == "measurement":
             system_id = fm.get("system_id") or fm.get("pwsid")
             if system_id:

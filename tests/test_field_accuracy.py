@@ -1,0 +1,145 @@
+"""
+tests/test_field_accuracy.py
+Unit & Regression Tests for Field-Accuracy Verification Gate (ig17).
+Swapp Technologies LLC (Maryland)
+"""
+
+import os
+import sys
+import json
+import unittest
+from pathlib import Path
+from datetime import date
+
+REPO_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_DIR))
+
+from scripts.check_field_accuracy import (
+    normalize_ws,
+    generate_date_renderings,
+    generate_identifier_renderings,
+    extract_text_from_file,
+    find_needle_in_pages,
+    check_body_narratives,
+    run_field_accuracy_check,
+    DATE_RENDERINGS_LIST
+)
+
+class TestFieldAccuracy(unittest.TestCase):
+    def setUp(self):
+        self.pdf_cache = REPO_DIR / ".cache" / "pdf_cache"
+        self.cache_dir = REPO_DIR / ".cache"
+
+    # 1. Found path on real saved source: DC Act 26-281 XML & PDF
+    def test_found_path_real_source(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        self.assertTrue(xml_file.exists(), f"Real fixture {xml_file} must exist")
+        pages = extract_text_from_file(str(xml_file))
+        self.assertGreater(len(pages), 0, "Source XML must have extractable text")
+
+        # Founder ruling: B26-0610 <-> 26-610 when tagged as bill
+        bill_renderings = generate_identifier_renderings("B26-0610", "bill_number")
+        res_bill = find_needle_in_pages(pages, bill_renderings)
+        self.assertIsNotNone(res_bill)
+        self.assertEqual(res_bill["status"], "found")
+
+        # A26-0281 <-> 26-281 / D.C. Act 26-281 when tagged as act
+        act_renderings = generate_identifier_renderings("A26-0281", "act_number")
+        res_act = find_needle_in_pages(pages, act_renderings)
+        self.assertIsNotNone(res_act)
+        self.assertEqual(res_act["status"], "found")
+
+    # 2. Not found path on real saved source: LIMS published_date not in law-xml
+    def test_not_found_path_real_source(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        pages = extract_text_from_file(str(xml_file))
+
+        # published_date '2026-03-27' came from LIMS before robots check, absent from law-xml
+        candidates = generate_date_renderings("2026-03-27")
+        res = find_needle_in_pages(pages, candidates)
+        self.assertIsNone(res, "LIMS published_date must be absent from law-xml source text -> not found")
+
+    # 3. Source not available locally path
+    def test_source_not_available_locally(self):
+        missing_source = self.cache_dir / "nonexistent_hash_99999.xml"
+        pages = extract_text_from_file(str(missing_source))
+        self.assertEqual(len(pages), 0, "Missing source must produce 0 pages")
+
+    # 4. Colon-vs-hyphen title differs -> not found
+    def test_colon_vs_hyphen_title_differs(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        pages = extract_text_from_file(str(xml_file))
+
+        # Test exact whitespace vs punctuation differences
+        source_title = "Rental Housing Registration Data Integrity Emergency Amendment Act of 2026"
+        res_match = find_needle_in_pages(pages, [source_title])
+        self.assertIsNotNone(res_match, "Verbatim title must match")
+
+        title_colon = "Rental Housing: Registration Data Integrity Emergency Amendment Act of 2026"
+        res_colon = find_needle_in_pages(pages, [title_colon])
+        self.assertIsNone(res_colon, "Colon alteration must be not found")
+
+    # 5. ISO record date vs verbal date in source -> found
+    def test_iso_vs_verbal_date_renderings(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        pages = extract_text_from_file(str(xml_file))
+
+        # In law-xml comment: "will expire on June 23, 2026"
+        candidates = generate_date_renderings("2026-06-23")
+        self.assertIn("June 23, 2026", candidates)
+        res = find_needle_in_pages(pages, candidates)
+        self.assertIsNotNone(res, "ISO date 2026-06-23 must match 'June 23, 2026' in source")
+
+    # 6. Computed date absent from source -> not found
+    def test_computed_date_absent_from_source(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        pages = extract_text_from_file(str(xml_file))
+
+        # Unstated future date
+        candidates = generate_date_renderings("2026-12-31")
+        res = find_needle_in_pages(pages, candidates)
+        self.assertIsNone(res, "Unstated date must be not found")
+
+    # 7. Derived status (founder ruling Nov 1, 17:28 ET)
+    def test_derived_status_from_stated_expiry(self):
+        xml_file = self.cache_dir / "e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.xml"
+        pages = extract_text_from_file(str(xml_file))
+
+        # expires_date '2026-06-23' is found in source ("June 23, 2026")
+        candidates = generate_date_renderings("2026-06-23")
+        match = find_needle_in_pages(pages, candidates)
+        self.assertIsNotNone(match)
+
+        # Stated expiry is June 23, 2026, which is before today
+        expiry_dt = date(2026, 6, 23)
+        self.assertLess(expiry_dt, date.today(), "Expiry date must be in the past to derive Expired status")
+
+    # 8. Narrative check detects editorial calculations & characterisations
+    def test_narrative_sentence_detection(self):
+        body = """
+        ## 2. Status Notes
+        - Action: unanimously passed by council
+        - Term: 45 days from enactment following approval
+        """
+        findings = check_body_narratives(body)
+        descs = [f["pattern_desc"] for f in findings]
+        self.assertTrue(any("45 days from" in d for d in descs))
+        self.assertTrue(any("unanimously passed" in d for d in descs))
+
+    # 9. Sidecar generation and schema integrity
+    def test_sidecar_generation(self):
+        exit_code = run_field_accuracy_check(str(REPO_DIR))
+        self.assertEqual(exit_code, 0, "Field-accuracy audit must return 0 in report-only mode")
+
+        sidecar_path = REPO_DIR / "verification" / "field_accuracy.json"
+        self.assertTrue(sidecar_path.exists(), "Sidecar verification/field_accuracy.json must exist")
+
+        with open(sidecar_path, "r", encoding="utf-8") as sf:
+            data = json.load(sf)
+
+        self.assertIn("repository", data)
+        self.assertIn("records", data)
+        self.assertEqual(len(data["records"]), 3)
+
+if __name__ == "__main__":
+    unittest.main()

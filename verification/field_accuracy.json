@@ -1,0 +1,246 @@
+{
+  "repository": "enacted-state-dc",
+  "check_timestamp": "2026-11-02T02:28:42.375616+00:00",
+  "date_renderings_rules": [
+    "YYYY-MM-DD",
+    "MM/DD/YYYY",
+    "M/D/YYYY",
+    "M/DD/YYYY",
+    "MM/D/YYYY",
+    "Month D, YYYY",
+    "Month DD, YYYY",
+    "Mon D, YYYY",
+    "Mon. D, YYYY",
+    "Mon DD, YYYY",
+    "Mon. DD, YYYY",
+    "D Month YYYY",
+    "DD Month YYYY",
+    "D Mon YYYY",
+    "D Mon. YYYY",
+    "Month YYYY",
+    "Mon YYYY",
+    "Mon. YYYY"
+  ],
+  "records": [
+    {
+      "record": "district_of_columbia\\council_bills\\b26_0610.md",
+      "record_type": "legislative",
+      "jurisdiction": "dc/district_of_columbia",
+      "sources_available": [
+        ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
+        ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin"
+      ],
+      "fields": {
+        "title": {
+          "result": "found",
+          "recorded_value": "Rental Housing Registration Data Integrity Emergency Amendment Act of 2026",
+          "matched_string": "Rental Housing Registration Data Integrity Emergency Amendment Act of 2026",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 5"
+        },
+        "action_status": {
+          "result": "derived from stated expiry",
+          "recorded_value": "Expired",
+          "matched_string": "expires_date 2026-06-23 found before run date",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 55"
+        },
+        "introduced_date": {
+          "result": "found",
+          "recorded_value": "2026-03-02",
+          "matched_string": "2026-03-02",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 8"
+        },
+        "vote_date": {
+          "result": "found",
+          "recorded_value": "2026-03-03",
+          "matched_string": "2026-03-03",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 15"
+        },
+        "enacted_date": {
+          "result": "found",
+          "recorded_value": "2026-03-25",
+          "matched_string": "2026-03-25",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 9"
+        },
+        "effective_date": {
+          "result": "found",
+          "recorded_value": "2026-03-25",
+          "matched_string": "2026-03-25",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 9"
+        },
+        "expires_date": {
+          "result": "found",
+          "recorded_value": "2026-06-23",
+          "matched_string": "June 23, 2026",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 55"
+        },
+        "published_date": {
+          "result": "not found",
+          "recorded_value": "2026-03-27",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
+          "location": null
+        },
+        "bill_number": {
+          "result": "found",
+          "recorded_value": "B26-0610",
+          "matched_string": "B26-0610",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 11"
+        },
+        "act_number": {
+          "result": "found",
+          "recorded_value": "A26-0281",
+          "matched_string": "26-281",
+          "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
+          "location": "page 1, line 2"
+        },
+        "sponsor": {
+          "result": "found",
+          "recorded_value": "Councilmember Robert C. White, Jr.",
+          "matched_string": "Councilmember Robert C. White, Jr.",
+          "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
+          "location": "page 1, line 5"
+        }
+      }
+    },
+    {
+      "record": "water\\measurements\\dc_water\\copper_tap_2025.md",
+      "record_type": "measurement",
+      "jurisdiction": "dc/district_of_columbia",
+      "sources_available": [
+        ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin"
+      ],
+      "fields": {
+        "title": {
+          "result": "not found",
+          "recorded_value": "Copper Tap Water Compliance (DC Water)",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "parameter": {
+          "result": "found",
+          "recorded_value": "Copper",
+          "matched_string": "Copper",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 14, line 29"
+        },
+        "reported_value": {
+          "result": "found",
+          "recorded_value": "0.098",
+          "matched_string": "0.098",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 21, line 26"
+        },
+        "unit": {
+          "result": "found",
+          "recorded_value": "ppm",
+          "matched_string": "ppm",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 18, line 79"
+        },
+        "limit": {
+          "result": "found",
+          "recorded_value": "1.3",
+          "matched_string": "1.3",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 19, line 24"
+        },
+        "determination": {
+          "result": "not found",
+          "recorded_value": "Violation: No",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "reporting_period": {
+          "result": "not found",
+          "recorded_value": "January\u2013June 2025",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "file_last_saved": {
+          "result": "not found",
+          "recorded_value": "2026-06-11",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        }
+      }
+    },
+    {
+      "record": "water\\measurements\\dc_water\\lead_tap_2025.md",
+      "record_type": "measurement",
+      "jurisdiction": "dc/district_of_columbia",
+      "sources_available": [
+        ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin"
+      ],
+      "fields": {
+        "title": {
+          "result": "not found",
+          "recorded_value": "Lead Tap Water Compliance (DC Water)",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "parameter": {
+          "result": "found",
+          "recorded_value": "Lead",
+          "matched_string": "Lead",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 4, line 12"
+        },
+        "reported_value": {
+          "result": "found",
+          "recorded_value": "2",
+          "matched_string": "2",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 1, line 1"
+        },
+        "unit": {
+          "result": "found",
+          "recorded_value": "ppb",
+          "matched_string": "ppb",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 18, line 80"
+        },
+        "limit": {
+          "result": "found",
+          "recorded_value": "15",
+          "matched_string": "15",
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": "page 3, line 14"
+        },
+        "determination": {
+          "result": "not found",
+          "recorded_value": "Violation: No",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "reporting_period": {
+          "result": "not found",
+          "recorded_value": "July\u2013December 2025",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        },
+        "file_last_saved": {
+          "result": "not found",
+          "recorded_value": "2026-06-11",
+          "matched_string": null,
+          "source_file": ".cache\\pdf_cache\\00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336.bin",
+          "location": null
+        }
+      }
+    }
+  ]
+}

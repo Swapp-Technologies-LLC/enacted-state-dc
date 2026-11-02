@@ -27,6 +27,7 @@ All corpus records are ingested exclusively from official government portals:
 * **Council of the District of Columbia:** (`dccouncil.gov` and the Council's official law repository, `github.com/DCCouncil/law-xml`)
 * **District of Columbia Office of Zoning:** (`dcoz.dc.gov`)
 * **DC Water:** (`dcwater.com`)
+
 `lims.dccouncil.gov` is not read by Enacted: its robots.txt disallows all crawlers. Links to LIMS pages are kept for people to follow.
 
 ### Hard Blocklist

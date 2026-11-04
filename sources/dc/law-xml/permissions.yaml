@@ -1,0 +1,32 @@
+# Permissions (D1) draft for DCCouncil/law-xml (DC Enacted Law)
+source_id: dc/law-xml
+publisher: Council of the District of Columbia
+updated_at: "2026-11-04"
+
+levels:
+  read:
+    proposed: yes
+    evidence:
+      - robots/api.github.com_2026-11-04.txt
+      - robots/raw.githubusercontent.com_2026-11-04.txt
+      - robots/github.com_2026-11-04.txt
+      - terms.md
+    ruled: null
+
+  store:
+    proposed: yes
+    evidence:
+      - terms.md
+    ruled: null
+
+  display:
+    proposed: yes
+    evidence:
+      - terms.md
+    ruled: null
+
+  commercial:
+    proposed: yes
+    evidence:
+      - terms.md
+    ruled: null

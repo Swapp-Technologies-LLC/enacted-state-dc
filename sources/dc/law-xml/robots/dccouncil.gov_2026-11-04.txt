@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: https://dccouncil.gov/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK

@@ -1,0 +1,7 @@
+HTTP/1.1 404 Not Found
+
+{
+  "message": "Not Found",
+  "documentation_url": "https://docs.github.com/rest",
+  "status": "404"
+}

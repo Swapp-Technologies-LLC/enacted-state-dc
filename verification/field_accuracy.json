@@ -1,6 +1,6 @@
 {
   "repository": "enacted-state-dc",
-  "check_timestamp": "2026-11-04T23:20:00.867414+00:00",
+  "check_timestamp": "2026-11-05T17:50:18.410686+00:00",
   "date_renderings_rules": [
     "YYYY-MM-DD",
     "MM/DD/YYYY",
@@ -26,7 +26,7 @@
       "record": "district_of_columbia\\council_bills\\b26_0610.md",
       "record_type": "legislative",
       "jurisdiction": "dc/district_of_columbia",
-      "source_host": "lims.dccouncil.gov",
+      "source_host": "dccouncil.gov",
       "sources_available": [
         ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
         ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin"
@@ -34,7 +34,7 @@
       "source_metrics": [
         {
           "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "dccouncil.gov",
           "page_count": 2,
           "total_chars": 2326,
           "chars_per_page": 1163.0,
@@ -42,7 +42,7 @@
         },
         {
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "page_count": 1,
           "total_chars": 4359,
           "chars_per_page": 4359.0,
@@ -55,7 +55,7 @@
           "recorded_value": "Rental Housing Registration Data Integrity Emergency Amendment Act of 2026",
           "matched_string": "Rental Housing Registration Data Integrity Emergency Amendment Act of 2026",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 5"
         },
         "action_status": {
@@ -63,7 +63,7 @@
           "recorded_value": "Expired",
           "matched_string": "expires_date 2026-06-23 found before run date",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 55"
         },
         "introduced_date": {
@@ -71,7 +71,7 @@
           "recorded_value": "2026-03-02",
           "matched_string": "2026-03-02",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 8"
         },
         "vote_date": {
@@ -79,7 +79,7 @@
           "recorded_value": "2026-03-03",
           "matched_string": "2026-03-03",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 15"
         },
         "enacted_date": {
@@ -87,7 +87,7 @@
           "recorded_value": "2026-03-25",
           "matched_string": "2026-03-25",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 9"
         },
         "effective_date": {
@@ -95,7 +95,7 @@
           "recorded_value": "2026-03-25",
           "matched_string": "2026-03-25",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 9"
         },
         "expires_date": {
@@ -103,7 +103,7 @@
           "recorded_value": "2026-06-23",
           "matched_string": "June 23, 2026",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 55"
         },
         "published_date": {
@@ -111,7 +111,7 @@
           "recorded_value": "2026-03-27",
           "matched_string": null,
           "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "dccouncil.gov",
           "location": null
         },
         "bill_number": {
@@ -119,7 +119,7 @@
           "recorded_value": "B26-0610",
           "matched_string": "B26-0610",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 11"
         },
         "act_number": {
@@ -127,7 +127,7 @@
           "recorded_value": "A26-0281",
           "matched_string": "26-281",
           "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "raw.githubusercontent.com",
           "location": "page 1, line 2"
         },
         "sponsor": {
@@ -135,7 +135,7 @@
           "recorded_value": "Councilmember Robert C. White, Jr.",
           "matched_string": "Councilmember Robert C. White, Jr.",
           "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
-          "source_host": "lims.dccouncil.gov",
+          "source_host": "dccouncil.gov",
           "location": "page 1, line 5"
         }
       }
@@ -313,7 +313,7 @@
     },
     {
       "source_file": ".cache\\pdf_cache\\ab20273aef31acd00e4d7196bdf33392911f4a6e404b7da3a241236acee0f419.bin",
-      "source_host": "lims.dccouncil.gov",
+      "source_host": "dccouncil.gov",
       "page_count": 2,
       "total_chars": 2326,
       "chars_per_page": 1163.0,
@@ -321,7 +321,7 @@
     },
     {
       "source_file": ".cache\\pdf_cache\\e9539caad2efe70f52d0ac786eb4d9280e046ddbd2fcc0a93046e98f004111a7.bin",
-      "source_host": "lims.dccouncil.gov",
+      "source_host": "raw.githubusercontent.com",
       "page_count": 1,
       "total_chars": 4359,
       "chars_per_page": 4359.0,

@@ -3,7 +3,7 @@
 **Source:** `DCCouncil/law-xml` (District of Columbia Enacted Law)  
 **Publisher:** Council of the District of Columbia  
 **Checklist Version:** v1 (Nov 1, 2026; approved Nov 4, 2026, 16:23 ET)  
-**Evaluation Date:** 2026-11-04  
+**Evaluation Date:** 2026-11-04 (corrections 2026-11-05)  
 **Data Repository:** `enacted-state-dc` (`staging/enacted-state-dc`)  
 
 ---
@@ -12,7 +12,7 @@
 
 ### A. Identify the source
 - [x] **A1. Publisher.** PASS.  
-  Publisher is the Council of the District of Columbia (Office of the General Counsel). Hosted on GitHub under the official `DCCouncil` organization.  
+  Publisher is the Council of the District of Columbia. Hosted on GitHub under the official `DCCouncil` organization.  
   *Evidence:* `terms.md`, `README.md`.
 - [x] **A2. Official route first.** PASS.  
   Official bulk XML Git repository (`DCCouncil/law-xml`). Specifically requested by `code.dccouncil.gov`: "Please do not scrape. Instead, bulk download the HTML or XML."  
@@ -53,7 +53,7 @@
   No special permission required for CC0 public domain bulk download.
 
 ### D. Permissions per source (R5, ruled Nov 1)
-- [x] **D1. Permissions recorded.** PASS.  
+- [ ] **D1. Permissions recorded.** PENDING (founder): levels proposed, not ruled.  
   Draft recorded in `permissions.yaml` with proposed: yes across read, store, display, commercial use; awaiting founder ruling.  
   *Evidence:* `permissions.yaml`.
 
@@ -68,9 +68,9 @@
 - [x] **E1. Current.** PASS.  
   Newest commit on default branch (`main`): `4bf03a58c3cb98cb1ff8923ed5d5f2af7738e643` (2026-11-03T23:24:07Z, Alexis Byrd, "11-3-26 commits"). Highest-numbered act: `26-460.xml` committed 2026-11-03T23:24:07Z.  
   *Evidence:* GitHub REST API commits endpoint.
-- [x] **E2. Official text.** PASS.  
-  Repository contains uncodified session laws and codified acts. The governing statutory source is the enacted act published by the Council and recorded in the DC Register (`73 DCR 5079`).  
-  *Evidence:* `terms.md`, `us/dc/council/periods/26/acts/26-281.xml`.
+- [ ] **E2. Official text.** PENDING (founder/counsel): the source does not state whether its text is official.  
+  The source repository does not state whether its text is official.  
+  *Evidence:* `terms.md`, `README.md`.
 - [ ] **E3. Who to ask.** PENDING (founder).  
   `authority.yaml` contains the Office of the Zoning Administrator, but does not currently contain an entry for the Council (publisher of acts).  
   *Evidence:* `district_of_columbia/authority.yaml`.
@@ -79,8 +79,8 @@
 - [ ] **F1. Supervised first run.** PENDING (founder).  
   Supervised zoning ingest run scheduled with the founder.
 - [x] **F2. Integrity gates green.** PASS.  
-  All 10 verification gates pass in `verify_corpus_integrity.py`.  
-  *Evidence:* `verify_corpus_integrity.py` test run output.
+  All 10 verification gates pass in `verify_corpus_integrity.py` on the clean tree at commit `285a25f` (run 2026-11-05T17:55:51Z).  
+  *Evidence:* `verify_corpus_integrity.py` clean-tree run output.
 - [ ] **F3. Field accuracy.** PENDING (founder).  
   Act 26-281 status source (`status_source_url`) verified. `published_date` (`2026-03-27`) from LIMS remains unverified against `law-xml` (which records only citation `73 DCR 5079` without publication date), awaiting founder ruling R-DC1.
 - [x] **F4. No inference.** PASS.  

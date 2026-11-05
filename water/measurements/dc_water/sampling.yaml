@@ -1,0 +1,15 @@
+system: "DC Water"
+how_sampled_url: "/dc/dc_water/water/how-sampled/"
+source_sha256: 00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336
+rule_passage_ref: "water/rules/lcr_90th_percentile_codified_2020-07-01.yaml"
+passages:
+  - label: "Action level"
+    quote: "AL (Action Level) - The concentration of a contaminant which, if exceeded, triggers a treatment or other requirement which a water system must follow."
+    source_page: 18
+  - label: "Sampling"
+    quote: "LEAD AND COPPER (AT THE CUSTOMER’S TAP)"
+    source_page: 21
+tap_testing:
+  quote: "If you are concerned about lead in your water and wish to have your water tested, contact DC Water at 202-787-4044 or lead@dcwater.com."
+  contact: "202-787-4044 or lead@dcwater.com"
+  source_page: 12

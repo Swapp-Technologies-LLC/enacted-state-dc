@@ -25,6 +25,11 @@ determination:
   status: no_violation_reported
   quote: "Violation: No"
   source_page: Page 21
+sites_above_al:
+  quote: "2 of 106"
+  column_label: "Samples above AL"
+  source_page: 21
+  glyph: true
 primary_source_url: https://www.dcwater.com/sites/default/files/document/2026-06/documents/2026_CCR_6.11.26_FINAL.pdf
 source_pdf: https://www.dcwater.com/sites/default/files/document/2026-06/documents/2026_CCR_6.11.26_FINAL.pdf
 source_sha256: 00d4f6197b744fac344b5466f36fa81cb4491cf0916a4125a2f201fb604ef336

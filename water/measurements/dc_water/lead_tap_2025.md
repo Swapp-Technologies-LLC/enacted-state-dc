@@ -1,7 +1,6 @@
 ---
 record_type: measurement
 instrument_type: Drinking Water Quality
-title: Lead Tap Water Compliance (DC Water)
 short_title: Lead at Customer Tap
 source_title: 2026 Drinking Water Quality Report
 system: DC Water Distribution System
